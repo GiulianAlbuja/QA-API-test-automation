@@ -2,6 +2,8 @@
 # Gestión de Órdenes de la Tienda de Mascotas
 
 Este proyecto se centra en la **Gestión de Órdenes** para una tienda de mascotas. Se implementó una feature que incluye dos escenarios principales: **Crear una nueva orden** y **Consultar una orden**. Estos escenarios están diseñados para asegurarnos que el funcionamiento de la API de la tienda de mascotas es el correcto.
+
+Contrato del servicio: https://petstore.swagger.io/
 ## Features
 
 ### 1. Crear una Nueva Orden
