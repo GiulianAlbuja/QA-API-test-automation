@@ -13,26 +13,38 @@ import static org.junit.Assert.assertNotNull;
 public class PetStoreSD {
     @Steps
     PetStoreStep petStoreStep;
-    @Given("dado que estoy en la pagina de mascotas")
+
+    @Given("que estoy en la pagina de mascotas")
     public void dadoQueEstoyEnLaPagina() {
     }
-    @When("creo una orden con id{int}, petId{int}, quantity{int}")
+
+    @When("creo una orden con id {int}, petId {int}, quantity {int}")
     public void creoUnaOrdenConIdIdPetIdPetIdQuantityQuantity(int id, int petId, int quantity) {
-        petStoreStep.crearOrden(id, petId,quantity);
+        petStoreStep.crearOrden(id, petId, quantity);
     }
 
-    @Then("el codigo de estado de la respuesta debe ser {int}")
+    @Then("el código de estado de la respuesta debe ser {int}")
     public void elCodigoDeEstadoDeLaRespuestaDebeSerCodigo(int codigo) {
         petStoreStep.validarCodigoRespuesta(codigo);
     }
 
-    @And("la respuesta debe contener el id{int}, petId{int}, quantity{int}")
+    @And("la respuesta debe contener el id {int}, petId {int}, quantity {int}")
     public void laRespuestaDebeContenerElIdIdPetIdPetIdQuantityQuantity(int id, int petId, int quantity) {
         Order order = petStoreStep.obtenerRespuestaOrder();
-        petStoreStep.obtenerRespuestaOrder();
         assertNotNull(order);
         assertEquals(id, order.getId());
         assertEquals(petId, order.getPetId());
         assertEquals(quantity, order.getQuantity());
+    }
+
+    @When("consulto la orden con id {int}")
+    public void consultoLaOrdenConIdId(int id) {
+        petStoreStep.consultarRespuesta(id);
+
+    }
+
+    @And("la URL_BASE del Servicio de la tienda responde {int}")
+    public void laURL_BASEDelServicioDeLaTiendaResponde(int codigoEstado) {
+        petStoreStep.validarServicio(codigoEstado);
     }
 }
